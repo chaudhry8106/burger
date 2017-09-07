@@ -4,7 +4,7 @@ var methodOverride = require("method-override");
 
 var app = express();
 var routes = require("./controllers/burgers_controller.js");
-var PORT = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -26,7 +26,7 @@ app.set("view engine", "handlebars");
 app.use("/", routes);
   
   // Starts the server to begin listening
-  app.listen(PORT, function() {
+  app.listen(port, function() {
     console.log("App listening on PORT " + PORT);
   });
   
