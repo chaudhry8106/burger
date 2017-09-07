@@ -1,0 +1,45 @@
+
+<img class="img-circle" src="https://media.giphy.com/media/WBTUlyKBVlTTa/giphy.gif">
+<h1>Eat-Da-Burger!</h1>
+<br>
+<div class="container">
+    <div class=col-md-5>
+        <div>
+        {{#each burgers}}
+            {{#unless this.devoured}}
+            <div class="col-md-9 burger-display">
+                {{this.id}}. {{this.name}}
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="true">
+                <button class="btn btn-md btn-warning" type="submit">Devoure it!</button>
+                </form><br>
+            </div>
+            {{/unless}}
+        {{/each}}
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+        <div>
+        {{#each burgers}}
+            {{#if this.devoured}}
+            <div>
+                <input class="form-control" id="disabledInput" type="text" value='{{this.id}}. {{this.name}}' disabled>
+            </div>
+            {{/if}}
+        {{/each}}
+        </div>
+    </div>
+</div>
+
+<h6>Enter a burger you want to eat and Click the "Submit" button</h6>
+
+<form class="create-update-form" action="/" method="POST">
+  <div class="form-group">
+    <textarea rows="4" cols="50" id="ca" name="name"></textarea>
+  </div>
+ <button class="btn btn-lg btn-success" type="submit">Submit</button>
+</form>
